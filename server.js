@@ -31,20 +31,6 @@ async function loadCaptures() {
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.get('/about', (req, res) => {
-  res.render('about');
-});
-
-app.get('/contact', (req, res) => {
-  res.render('contact');
-});
-
-app.post('/contact', (req, res) => {
-  // In a real application, you would process the form data here
-  // For now, we'll just redirect back to the contact page
-  console.log('Contact form submission:', req.body);
-  res.redirect('/contact');
-});
 
 // API route to get all captures
 app.get('/api/captures', async (req, res) => {
