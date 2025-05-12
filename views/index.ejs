@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astrophotography Gallery</title>
+  <title>We Capture Space</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -11,8 +12,8 @@
 <body>
   <header>
     <a href="/" class="logo">
-      <i class="fas fa-galaxy"></i>
-      Astrophotography Gallery
+      <img src="/galaxy.png" alt="Galaxy Logo" class="logo-image">
+      We Capture Space
     </a>
     <nav>
       <ul>
@@ -22,8 +23,8 @@
 
   <main>
     <section class="hero">
-      <h1>Astrophotography Gallery</h1>
-      <p>A collection of astrophotography</p>
+      <h1>We Capture Space</h1>
+      <p>A collection of cosmic wonders</p>
     </section>
 
     <section class="search-container">
@@ -53,7 +54,7 @@
       <div class="empty-state">
         <i class="fas fa-spinner fa-spin"></i>
         <h2>Loading images...</h2>
-        <p>Please wait while we fetch your astrophotography collection.</p>
+        <p>Please wait while we fetch your cosmic collection.</p>
       </div>
     </div>
   </main>
@@ -68,7 +69,7 @@
       <div class="modal-body">
         <div class="modal-image-container">
           <div class="modal-image-wrapper">
-            <img id="modal-image" class="modal-image" src="" alt="Astrophotography image">
+            <img id="modal-image" class="modal-image" src="" alt="Space image">
           </div>
           <div class="modal-image-controls">
             <button id="modal-processed-btn" class="modal-image-btn active">Processed</button>
@@ -109,7 +110,7 @@
   <script src="/js/gallery.js"></script>
   
   <footer>
-    <p>Astrophotography Gallery &copy; <%= new Date().getFullYear() %> | All Rights Reserved</p>
+    <p>We Capture Space &copy; <%= new Date().getFullYear() %> | All Rights Reserved</p>
     <p>
       <a href="https://github.com/nubgamerz" target="_blank" title="GitHub">
         <i class="fab fa-github"></i> github.com/nubgamerz

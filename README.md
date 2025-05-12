@@ -1,6 +1,6 @@
-# Astrophotography Gallery
+# We Capture Space
 
-A modern, responsive web application for showcasing astrophotography images with both raw and processed versions. Built with Node.js, Express, and EJS.
+A modern, responsive web application for showcasing space photography images with both raw and processed versions. Built with Node.js, Express, and EJS. Visit us at [https://we-capture.space](https://we-capture.space).
 
 ## Features
 
@@ -10,7 +10,7 @@ A modern, responsive web application for showcasing astrophotography images with
 - **Search Functionality**: Search by title, description, location, or tags
 - **Sorting Options**: Sort by date, title, or location
 - **Responsive Design**: Looks great on desktop and mobile devices
-- **Modern UI**: Dark theme optimized for showcasing astrophotography
+- **Modern UI**: Dark theme optimized for showcasing space photography
 
 ## Directory Structure
 

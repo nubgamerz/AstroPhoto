@@ -59,7 +59,7 @@ const PORT = process.env.PORT || 3000;
 // Start the server if this file is run directly
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log('Astrophotography gallery listening on http://localhost:' + PORT);
+    console.log('We Capture Space listening on http://localhost:' + PORT);
   });
 }
 
