@@ -5,6 +5,9 @@ const storage = require('./utils/storage');
 const app = express();
 const IMAGE_DIR = path.join(__dirname, 'public', 'images');
 
+// Determine if we're running in Vercel
+const isVercel = process.env.VERCEL === '1';
+
 // Serve processed and raw images statically
 // Serve static files
 app.use('/images', express.static(IMAGE_DIR));
@@ -13,6 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+// Add a health check route for Vercel
+app.get('/_health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 // Load captures using the storage adapter
 async function loadCaptures() {

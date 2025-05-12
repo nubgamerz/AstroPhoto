@@ -92,14 +92,16 @@ This project can be deployed to Vercel by following these steps:
    vercel login
    ```
 
-2. Deploy your application:
+2. Deploy your application with the "Other" framework preset:
    ```
-   vercel
+   vercel --framework=other
    ```
+   
+   > **Important**: When prompted to select a framework preset during deployment, choose "Other" to ensure Vercel uses your custom configuration.
 
 3. For production deployment:
    ```
-   vercel --prod
+   vercel --prod --framework=other
    ```
 
 ### Image Handling for Vercel Deployment
