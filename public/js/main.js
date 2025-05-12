@@ -58,8 +58,18 @@ function setupImageModal() {
       
       // Get data from the card
       const title = card.querySelector('.card-title').textContent;
-      const date = card.querySelector('.card-meta span:first-child').textContent.replace(/.*\s/, '');
-      const location = card.querySelector('.card-meta span:last-child').textContent.replace(/.*\s/, '');
+      const dateElement = card.querySelector('.card-meta span:nth-child(1)');
+      const exposureTimeElement = card.querySelector('.card-meta span:nth-child(2)');
+      const locationElement = card.querySelector('.card-meta span:nth-child(3)');
+      const focalLengthElement = card.querySelector('.card-meta:nth-child(3) span:nth-child(1)');
+      const pixelSizeElement = card.querySelector('.card-meta:nth-child(3) span:nth-child(2)');
+      
+      // Extract text content, removing only the icon part
+      const date = dateElement ? dateElement.textContent.replace(/^\S+\s+/, '') : '';
+      const exposureTime = exposureTimeElement ? exposureTimeElement.textContent.replace(/^\S+\s+/, '') : '';
+      const location = locationElement ? locationElement.textContent.replace(/^\S+\s+/, '') : '';
+      const focalLength = focalLengthElement ? focalLengthElement.textContent.replace(/^\S+\s+/, '') : '';
+      const pixelSize = pixelSizeElement ? pixelSizeElement.textContent.replace(/^\S+\s+/, '') : '';
       const description = card.querySelector('.card-description')?.textContent || '';
       
       // Get image URLs from data attributes
@@ -75,7 +85,10 @@ function setupImageModal() {
       // Update modal content
       modalTitle.textContent = title;
       modalDate.textContent = date;
+      document.getElementById('modal-exposure-time').textContent = exposureTime;
       modalLocation.textContent = location;
+      document.getElementById('modal-focal-length').textContent = focalLength;
+      document.getElementById('modal-pixel-size').textContent = pixelSize;
       modalDescription.textContent = description;
       
       // Set image

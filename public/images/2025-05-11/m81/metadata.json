@@ -1,7 +1,10 @@
 {
-  "title": "M81",
-  "description": "Messier 81 (also known as NGC 3031 or Bode's Galaxy) is a grand design spiral galaxy about 12 million light-years away in the constellation Ursa Major. It has a D25 isophotal diameter of 29.44 kiloparsecs (96,000 light-years). Because of its relative proximity to the Milky Way galaxy, large size, and active galactic nucleus (which harbors a 70 million M☉ supermassive black hole), Messier 81 has been studied extensively by professional astronomers. The galaxy's large size and relatively high brightness also makes it a popular target for amateur astronomers. In late February 2022, astronomers reported that M81 may be the source of FRB 20200120E, a repeating fast radio burst.",
-  "tags": ["m81", "galaxy", "messier", "ursa major"],
+  "title": "M81 Bode's Galaxy",
+  "description": "Messier 81 (also known as NGC 3031 or Bode's Galaxy) is a grand design spiral galaxy about 12 million light-years away, with a diameter of 90,000 light years, in the constellation Ursa Major. Due to its proximity to Earth, large size, and active galactic nucleus (which harbors a 70 million M☉ supermassive black hole), Messier 81 has been studied extensively by professional astronomers.",
+  "tags": ["galaxy", "M81", "messier", "bode"],
   "location": "Poland",
-  "date": "2025-05-11"
+  "date": "2025-05-11",
+  "exposureTime": "1h @ 10s",
+  "focalLength": "250mm",
+  "pixelSize": "2.9µm"
 }
