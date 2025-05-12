@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrophotography Gallery</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">
+      <i class="fas fa-galaxy"></i>
+      Astrophotography Gallery
+    </a>
+    <nav>
+      <ul>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Astrophotography Gallery</h1>
+      <p>A collection of astrophotography</p>
+    </section>
+
+    <section class="search-container">
+      <form class="search-form" method="GET" action="/">
+        <div class="search-input">
+          <input type="text" name="search" placeholder="Search by title, description, location or tags..." value="<%= search %>">
+        </div>
+        <div class="filter-options">
+          <select name="sort">
+            <option value="date" <%= sort === 'date' ? 'selected' : '' %>>Sort by Date</option>
+            <option value="title" <%= sort === 'title' ? 'selected' : '' %>>Sort by Title</option>
+            <option value="location" <%= sort === 'location' ? 'selected' : '' %>>Sort by Location</option>
+          </select>
+          <select name="order">
+            <option value="desc" <%= order === 'desc' ? 'selected' : '' %>>Newest First</option>
+            <option value="asc" <%= order === 'asc' ? 'selected' : '' %>>Oldest First</option>
+          </select>
+        </div>
+        <button type="submit" class="search-button">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </form>
+    </section>
+
+    <!-- Gallery container - will be populated by JavaScript -->
+    <div class="gallery">
+      <div class="empty-state">
+        <i class="fas fa-spinner fa-spin"></i>
+        <h2>Loading images...</h2>
+        <p>Please wait while we fetch your astrophotography collection.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Image Modal -->
+  <div id="image-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title">Image Title</h2>
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <div class="modal-image-wrapper">
+            <img id="modal-image" class="modal-image" src="" alt="Astrophotography image">
+          </div>
+          <div class="modal-image-controls">
+            <button id="modal-processed-btn" class="modal-image-btn active">Processed</button>
+            <button id="modal-raw-btn" class="modal-image-btn">Raw</button>
+          </div>
+        </div>
+        <div class="modal-details">
+          <div class="modal-meta">
+            <div class="modal-meta-item">
+              <i class="far fa-calendar"></i>
+              <span id="modal-date"></span>
+            </div>
+            <div class="modal-meta-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="modal-location"></span>
+            </div>
+          </div>
+          <p id="modal-description" class="modal-description"></p>
+          <ul id="modal-tags" class="modal-tags"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Cosmic Captures</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .about-section {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .about-section h2 {
+      margin-bottom: 20px;
+      color: var(--highlight-color);
+    }
+    
+    .about-section p {
+      margin-bottom: 15px;
+    }
+    
+    .equipment-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .equipment-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .equipment-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .equipment-list i {
+      margin-right: 10px;
+      color: var(--highlight-color);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">
+      <i class="fas fa-galaxy"></i>
+      Cosmic Captures
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>About Cosmic Captures</h1>
+      <p>Learn about our passion for astrophotography and the equipment we use to capture the wonders of the universe.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Our Story</h2>
+      <p>Cosmic Captures began as a personal project to document the beauty of the night sky. What started as a hobby quickly evolved into a passion for capturing the most stunning astronomical objects visible from Earth.</p>
+      <p>Each image in our gallery represents hours of planning, setup, exposure, and post-processing work. We travel to dark sky locations around the world to get the clearest possible views of celestial objects.</p>
+      <p>Our mission is to share the wonders of the universe with everyone and inspire more people to look up at the night sky with curiosity and wonder.</p>
+    </section>
+
+    <section class="about-section">
+      <h2>Our Equipment</h2>
+      <ul class="equipment-list">
+        <li><i class="fas fa-camera"></i> <strong>Primary Camera:</strong> Modified Canon EOS Ra (Astro-specialized)</li>
+        <li><i class="fas fa-telescope"></i> <strong>Main Telescope:</strong> Celestron EdgeHD 11" with 0.7x reducer</li>
+        <li><i class="fas fa-rocket"></i> <strong>Mount:</strong> Sky-Watcher EQ8-Rh Pro Equatorial Mount</li>
+        <li><i class="fas fa-filter"></i> <strong>Filters:</strong> Astronomik CLS-CCD, Ha 12nm, OIII 12nm, SII 12nm</li>
+        <li><i class="fas fa-laptop-code"></i> <strong>Software:</strong> PixInsight, Adobe Photoshop, Sequence Generator Pro</li>
+        <li><i class="fas fa-satellite-dish"></i> <strong>Guiding:</strong> ZWO ASI290MM Mini with 60mm guide scope</li>
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2>Image Processing</h2>
+      <p>Each image in our gallery is presented in two formats:</p>
+      <p><strong>Raw:</strong> The initial stacked image with minimal processing, showing the data as captured by the camera.</p>
+      <p><strong>Processed:</strong> The final image after careful processing to bring out details, colors, and contrast while maintaining scientific accuracy.</p>
+      <p>Our processing workflow typically includes calibration, stacking, noise reduction, color calibration, and careful enhancement of details without introducing artifacts or false colors.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Cosmic Captures &copy; <%= new Date().getFullYear() %> | All Rights Reserved</p>
+    <p>Exploring the universe one image at a time</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-flickr"></i></a>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
