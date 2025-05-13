@@ -1,6 +1,6 @@
 /**
- * Gallery functionality for Cosmic Captures
- * Handles client-side filtering, sorting, and display of astrophotography images
+ * Gallery functionality for We Capture Space
+ * Handles client-side filtering, sorting, and display of space images
  */
 
 // Store all captures data for client-side filtering
@@ -140,13 +140,18 @@ function renderGallery() {
     html += `
       <div class="capture-card" data-raw="${cap.rawUrl}" data-processed="${cap.processedUrl}">
         <div class="card-image">
-          <img src="${cap.processedUrl}" alt="${cap.title || 'Astrophotography image'}">
+          <img src="${cap.processedUrl}" alt="${cap.title || 'Space image'}">
         </div>
         <div class="card-content">
           <h2 class="card-title">${cap.title || 'Untitled Capture'}</h2>
           <div class="card-meta">
             <span><i class="far fa-calendar"></i> ${cap.date}</span>
+            <span><i class="fas fa-clock"></i> ${cap.exposureTime || 'Unknown exposure'}</span>
             <span><i class="fas fa-map-marker-alt"></i> ${cap.location || 'Unknown location'}</span>
+          </div>
+          <div class="card-meta">
+            <span><i class="fas fa-camera"></i> ${cap.focalLength || 'Unknown focal length'}</span>
+            <span><i class="fas fa-microchip"></i> ${cap.pixelSize || 'Unknown pixel size'}</span>
           </div>
           ${cap.description ? `<p class="card-description">${cap.description}</p>` : ''}
           ${tagsHtml}

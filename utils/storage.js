@@ -86,7 +86,10 @@ async function getLocalCaptures() {
           title: meta.title || '',
           description: meta.description || '',
           tags: meta.tags || [],
-          location: meta.location || ''
+          location: meta.location || '',
+          exposureTime: meta.exposureTime || '',
+          focalLength: meta.focalLength || '',
+          pixelSize: meta.pixelSize || ''
         });
       }
     }

@@ -53,9 +53,11 @@ header {
   align-items: center;
 }
 
-.logo i {
+.logo-image {
+  height: 24px;
+  width: auto;
   margin-right: 10px;
-  color: var(--highlight-color);
+  vertical-align: middle;
 }
 
 nav ul {
