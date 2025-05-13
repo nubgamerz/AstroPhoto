@@ -1,0 +1,10 @@
+{
+  "title": "M3",
+  "description": "Messier 3 (M3; also NGC 5272) is a globular cluster of stars in the northern constellation of Canes Venatici. It was discovered on May 3, 1764, and was the first Messier object to be discovered by Charles Messier himself.",
+  "tags": ["cluster", "M3", "messier", "ngc5272", "canes venatici"],
+  "location": "Poland",
+  "date": "2025-05-12",
+  "exposureTime": "56m @ 10s",
+  "focalLength": "250mm",
+  "pixelSize": "2.9µm"
+}

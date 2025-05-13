@@ -1,0 +1,10 @@
+{
+  "title": "M97 Owl Nebula",
+  "description": "The Owl Nebula (also known as Messier 97, M97 or NGC 3587) is a planetary nebula approximately 2,030 light years away in the constellation Ursa Major. Estimated to be about 8,000 years old, it is approximately circular in cross-section with a faint internal structure. It was formed from the outflow of material from the stellar wind of the central star as it evolved along the asymptotic giant branch.",
+  "tags": ["nebula", "m97", "messier", "owl"],
+  "location": "Poland",
+  "date": "2025-05-12",
+  "exposureTime": "44m @ 10s",
+  "focalLength": "250mm",
+  "pixelSize": "2.9µm"
+}
