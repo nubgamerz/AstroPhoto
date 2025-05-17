@@ -38,6 +38,7 @@ function setupImageModal() {
 
   const captureCards = document.querySelectorAll('.capture-card');
   const modalImage = document.getElementById('modal-image');
+  const imageLoading = document.getElementById('image-loading');
   const modalTitle = document.getElementById('modal-title');
   const modalDate = document.getElementById('modal-date');
   const modalLocation = document.getElementById('modal-location');
@@ -91,7 +92,21 @@ function setupImageModal() {
       document.getElementById('modal-pixel-size').textContent = pixelSize;
       modalDescription.textContent = description;
       
-      // Set image
+      // Hide the image initially
+      modalImage.style.display = 'none';
+      
+      // Show loading indicator
+      if (imageLoading) imageLoading.style.display = 'flex';
+      
+      // Set image with loading handler
+      modalImage.onload = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block';
+      };
+      modalImage.onerror = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block'; // Still show the image element even if it failed to load
+      };
       modalImage.src = processedUrl;
       currentRawUrl = rawUrl;
       currentProcessedUrl = processedUrl;
@@ -129,7 +144,23 @@ function setupImageModal() {
   // Switch between raw and processed images
   if (modalRawBtn) {
     modalRawBtn.addEventListener('click', function() {
+      // Hide the image initially
+      modalImage.style.display = 'none';
+      
+      // Show loading indicator
+      if (imageLoading) imageLoading.style.display = 'flex';
+      
+      // Set image with loading handler
+      modalImage.onload = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block';
+      };
+      modalImage.onerror = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block'; // Still show the image element even if it failed to load
+      };
       modalImage.src = currentRawUrl;
+      
       modalRawBtn.classList.add('active');
       modalProcessedBtn.classList.remove('active');
     });
@@ -137,7 +168,23 @@ function setupImageModal() {
 
   if (modalProcessedBtn) {
     modalProcessedBtn.addEventListener('click', function() {
+      // Hide the image initially
+      modalImage.style.display = 'none';
+      
+      // Show loading indicator
+      if (imageLoading) imageLoading.style.display = 'flex';
+      
+      // Set image with loading handler
+      modalImage.onload = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block';
+      };
+      modalImage.onerror = function() {
+        if (imageLoading) imageLoading.style.display = 'none';
+        modalImage.style.display = 'block'; // Still show the image element even if it failed to load
+      };
       modalImage.src = currentProcessedUrl;
+      
       modalProcessedBtn.classList.add('active');
       modalRawBtn.classList.remove('active');
     });

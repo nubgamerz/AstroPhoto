@@ -430,6 +430,24 @@ footer p {
   object-fit: contain;
 }
 
+.image-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.image-loading i {
+  font-size: 3rem;
+  color: var(--highlight-color);
+}
+
 .modal-image-controls {
   display: flex;
   gap: 10px;
