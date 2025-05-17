@@ -138,7 +138,7 @@ function renderGallery() {
     }
     
     html += `
-      <div class="capture-card" data-raw="${cap.rawUrl}" data-processed="${cap.processedUrl}">
+      <div class="capture-card" data-raw="${cap.rawUrl}" data-processed="${cap.processedUrl}" data-id="${cap.id}">
         <div class="card-image">
           <img src="${cap.processedUrl}" alt="${cap.title || 'Space image'}">
         </div>
