@@ -47,9 +47,18 @@ function setupImageModal() {
   const modalClose = document.querySelector('.modal-close');
   const modalRawBtn = document.getElementById('modal-raw-btn');
   const modalProcessedBtn = document.getElementById('modal-processed-btn');
+  const zoomInBtn = document.getElementById('zoom-in-btn');
+  const zoomOutBtn = document.getElementById('zoom-out-btn');
+  const zoomResetBtn = document.getElementById('zoom-reset-btn');
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  const modalImageWrapper = document.querySelector('.modal-image-wrapper');
+  const modalContent = document.querySelector('.modal-content');
 
   let currentRawUrl = '';
   let currentProcessedUrl = '';
+  let currentScale = 1;
+  let isDragging = false;
+  let startX, startY, translateX = 0, translateY = 0;
 
   // Open modal when clicking on a capture card
   captureCards.forEach(card => {
@@ -119,6 +128,9 @@ function setupImageModal() {
         modalTags.appendChild(li);
       });
       
+      // Reset zoom and position
+      resetZoomAndPosition();
+      
       // Show modal
       modal.classList.add('active');
       document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -141,9 +153,129 @@ function setupImageModal() {
     }
   });
 
+  // Zoom functionality
+  if (zoomInBtn) {
+    zoomInBtn.addEventListener('click', function() {
+      currentScale += 0.25;
+      if (currentScale > 3) currentScale = 3; // Limit max zoom
+      updateImageTransform();
+    });
+  }
+  
+  if (zoomOutBtn) {
+    zoomOutBtn.addEventListener('click', function() {
+      currentScale -= 0.25;
+      if (currentScale < 1) currentScale = 1; // Don't zoom out smaller than original
+      updateImageTransform();
+    });
+  }
+  
+  if (zoomResetBtn) {
+    zoomResetBtn.addEventListener('click', function() {
+      // Reset zoom and position
+      currentScale = 1;
+      translateX = 0;
+      translateY = 0;
+      updateImageTransform();
+      modalImageWrapper.classList.remove('zoomed');
+    });
+  }
+  
+  // Pan functionality
+  if (modalImageWrapper && modalImage) {
+    // Mouse events for desktop
+    modalImageWrapper.addEventListener('mousedown', function(e) {
+      // Only handle direct clicks on the image or wrapper, not on buttons
+      if (e.target === modalImage || e.target === modalImageWrapper) {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        modalImageWrapper.classList.add('zoomed');
+        e.preventDefault(); // Prevent any default behavior
+      }
+    });
+    
+    modalImageWrapper.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateImageTransform();
+        e.preventDefault(); // Prevent any default behavior
+      }
+    });
+    
+    modalImageWrapper.addEventListener('mouseup', function() {
+      isDragging = false;
+    });
+    
+    modalImageWrapper.addEventListener('mouseleave', function() {
+      isDragging = false;
+    });
+    
+    // Touch events for mobile
+    modalImageWrapper.addEventListener('touchstart', function(e) {
+      // Don't handle touch events on the zoom controls
+      if (!e.target.closest('.modal-zoom-controls')) {
+        isDragging = true;
+        startX = e.touches[0].clientX - translateX;
+        startY = e.touches[0].clientY - translateY;
+        modalImageWrapper.classList.add('zoomed');
+        // Don't prevent default here to allow tap events to work normally
+      }
+    });
+    
+    modalImageWrapper.addEventListener('touchmove', function(e) {
+      if (isDragging) {
+        e.preventDefault(); // Prevent scrolling while panning
+        translateX = e.touches[0].clientX - startX;
+        translateY = e.touches[0].clientY - startY;
+        updateImageTransform();
+      }
+    });
+    
+    modalImageWrapper.addEventListener('touchend', function() {
+      isDragging = false;
+    });
+  }
+  
+  // Function to update image transform
+  function updateImageTransform() {
+    if (modalImage) {
+      modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+    }
+  }
+  
+  // Fullscreen functionality removed
+  
+  // Reset zoom and position when modal is closed
+  if (modalClose) {
+    modalClose.addEventListener('click', function() {
+      currentScale = 1;
+      translateX = 0;
+      translateY = 0;
+      updateImageTransform();
+      modalImageWrapper.classList.remove('zoomed');
+      
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+  }
+  
+  // Reset zoom and position when switching images
+  function resetZoomAndPosition() {
+    currentScale = 1;
+    translateX = 0;
+    translateY = 0;
+    updateImageTransform();
+    if (modalImageWrapper) modalImageWrapper.classList.remove('zoomed');
+  }
+
   // Switch between raw and processed images
   if (modalRawBtn) {
     modalRawBtn.addEventListener('click', function() {
+      // Reset zoom and position
+      resetZoomAndPosition();
+      
       // Hide the image initially
       modalImage.style.display = 'none';
       
@@ -168,6 +300,9 @@ function setupImageModal() {
 
   if (modalProcessedBtn) {
     modalProcessedBtn.addEventListener('click', function() {
+      // Reset zoom and position
+      resetZoomAndPosition();
+      
       // Hide the image initially
       modalImage.style.display = 'none';
       
