@@ -1,0 +1,10 @@
+{
+  "title": "M109",
+  "description": "Messier 109 (also known as NGC 3992 or the Vacuum Cleaner Galaxy) is a barred spiral galaxy exhibiting a weak inner ring structure around the central bar approximately 67.2 ± 23 million light-years away in the northern constellation Ursa Major. M109 can be seen south-east of the star Phecda (γ UMa, Gamma Ursa Majoris).",
+  "tags": ["galaxy", "M109", "messier", "ngc3992", "vacuum cleaner"],
+  "location": "Poland",
+  "date": "2025-05-24",
+  "exposureTime": "282m @ 10s",
+  "focalLength": "250mm",
+  "pixelSize": "2.9µm"
+}
